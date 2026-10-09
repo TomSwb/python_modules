@@ -46,12 +46,14 @@ def main():
     garden.add_plant(sunflower)
     garden.add_plant(cactus)
 
-    print("=== Garden Plant Registry ===")
+    print("=== Garden Plant Growth ===")
     garden.show()
-    i = 0
+    i = 1
     days = 5
-    while i < days
+    while i < days:
+        print(f"=== Day{i} ===")
         garden.growing_garden()
+    print("")
 
 if __name__ == "__main__":
 	main()
