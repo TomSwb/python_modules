@@ -1,19 +1,19 @@
 
 class Plant:
-    def __init__(self, name, height, days, growth_rate):
+    def __init__(self, name, height, days_old, growth_rate):
         self.name = name
         self.height = height
-        self.days = days
+        self.days_old = days
         self.growth_rate = growth_rate
         
     def show(self):
-        print(f"{self.name}: {round(self.height)}cm, {self.days} days old")
+        print(f"{self.name}: {round(self.height)}cm, {self.days_old} days old")
         
     def grow(self)
         self.height += self.growth_rate
     
     def age(self)
-        self.days += 1
+        self.days_old += 1
     
 class Garden:
     def __init__(self):
@@ -25,9 +25,6 @@ class Garden:
     def display_plants(self):
         for plant in self.plants:
             self.plants.show()
-            
-    def display_one_plant_growth(self, name)
-        
             
     def growing_plant(self)
         for plant in plants:
@@ -48,13 +45,16 @@ def main():
 
     print("=== Garden Plant Growth ===")
     i = 1
-    days = 5
-    while i < days:
+    days = 7
+    starting_height = rose.height
+    while i <= days:
         print(f"=== Day{i} ===")
-        garden.plant.grow("Rose")
-        plant.show()
+        rose.grow()
+        rose.age()
+        rose.show()
         i += 1
-    print("Grows this week: {height} cm")
+    growth = rose.height - starting_height
+    print(f"Growth this week: {round(growth)} cm")
 
 if __name__ == "__main__":
 	main()
