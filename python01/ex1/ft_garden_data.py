@@ -29,7 +29,7 @@ class Garden:
     def display_plants(self):
         i = 0
         while i < len(self.plants):
-            self.plants[i].display_info()
+            self.plants[i].show()
             i += 1
 
 def main():
