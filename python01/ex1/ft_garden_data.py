@@ -16,7 +16,7 @@ class Plant:
         self.height = height
         self.age = age
         
-    def display_info(self):
+    def show(self):
         print(f"{self.name}: {self.height}cm, {self.age} days old" )
 
 class Garden:
