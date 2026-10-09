@@ -5,7 +5,7 @@ class Plant:
         self.height = height
         self.age = age
         
-    def display_info(self):
+    def show(self):
         print(f"{self.name}: {self.height}cm, {self.age} days old")
         
     def grow(self, int days)
@@ -28,7 +28,7 @@ class Garden:
     def display_plants(self):
         i = 0
         while i < len(self.plants):
-            self.plants[i].display_info()
+            self.plants[i].show()
             i += 1
 
 def main():
