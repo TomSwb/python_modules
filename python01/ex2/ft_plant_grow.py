@@ -1,23 +1,19 @@
 
 class Plant:
-    def __init__(self, name, height, age):
+    def __init__(self, name, height, days, growth_rate):
         self.name = name
         self.height = height
-        self.age = age
+        self.days = days
+        self.growth_rate = growth_rate
         
     def show(self):
-        print(f"{self.name}: round({self.height})cm, {self.age} days old")
+        print(f"{self.name}: {round(self.height)}cm, {self.days} days old")
         
     def grow(self)
-        if name == rose:
-            self.height += 0.8
-        elif name == sunflower:
-            self.height += 1.2
-        elif name == cactus:
-            self.height += 1.6
+        self.height += self.growth_rate
     
     def age(self)
-        self.age += 1
+        self.days += 1
     
 class Garden:
     def __init__(self):
@@ -30,16 +26,20 @@ class Garden:
         for plant in self.plants:
             self.plants.show()
             
-    def growing_garden(self)
-        self.plants.grow()
-        self.plants.age()
-        self.plants.show()
+    def display_one_plant_growth(self, name)
+        
+            
+    def growing_plant(self)
+        for plant in plants:
+            self.plants.grow()
+            self.plants.age()
 
 def main():
-    rose = Plant("Rose", 25, 30)
-    sunflower = Plant("Sunflower", 80, 45)
-    cactus = Plant("Cactus", 15, 120)
+    rose = Plant("Rose", 25, 30, 0.8)
+    sunflower = Plant("Sunflower", 80, 45, 1.2)
+    cactus = Plant("Cactus", 15, 120, 1.6)
 
+    plant = Plant()
     garden = Garden()
 
     garden.add_plant(rose)
@@ -47,12 +47,13 @@ def main():
     garden.add_plant(cactus)
 
     print("=== Garden Plant Growth ===")
-    garden.show()
     i = 1
     days = 5
     while i < days:
         print(f"=== Day{i} ===")
-        garden.growing_garden()
+        garden.plant.grow("Rose")
+        plant.show()
+        i += 1
     print("Grows this week: {height} cm")
 
 if __name__ == "__main__":
