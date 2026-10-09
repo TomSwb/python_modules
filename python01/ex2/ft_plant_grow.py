@@ -3,7 +3,7 @@ class Plant:
     def __init__(self, name, height, days_old, growth_rate):
         self.name = name
         self.height = height
-        self.days_old = days
+        self.days_old = days_old
         self.growth_rate = growth_rate
         
     def show(self):
