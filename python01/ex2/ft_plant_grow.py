@@ -6,9 +6,9 @@ class Plant:
         self.age = age
         
     def show(self):
-        print(f"{self.name}: {self.height}cm, {self.age} days old")
+        print(f"{self.name}: round({self.height})cm, {self.age} days old")
         
-    def grow(self, int days)
+    def grow(self, days)
         if name == rose:
             self.height += 0.8 * days
         elif name == sunflower:
@@ -16,7 +16,8 @@ class Plant:
         elif name == cactus:
             self.height += 1.6 * days
     
-    def age(self)
+    def age(self, days)
+        self.age += days
     
 class Garden:
     def __init__(self):
