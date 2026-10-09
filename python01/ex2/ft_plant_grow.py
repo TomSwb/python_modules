@@ -53,7 +53,7 @@ def main():
     while i < days:
         print(f"=== Day{i} ===")
         garden.growing_garden()
-    print("")
+    print("Grows this week: {height} cm")
 
 if __name__ == "__main__":
 	main()
