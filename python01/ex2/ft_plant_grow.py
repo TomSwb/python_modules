@@ -8,16 +8,16 @@ class Plant:
     def show(self):
         print(f"{self.name}: round({self.height})cm, {self.age} days old")
         
-    def grow(self, days)
+    def grow(self)
         if name == rose:
-            self.height += 0.8 * days
+            self.height += 0.8
         elif name == sunflower:
-            self.height += 1.2 * days
+            self.height += 1.2
         elif name == cactus:
-            self.height += 1.6 * days
+            self.height += 1.6
     
-    def age(self, days)
-        self.age += days
+    def age(self)
+        self.age += 1
     
 class Garden:
     def __init__(self):
@@ -30,9 +30,10 @@ class Garden:
         for plant in self.plants:
             self.plants.show()
             
-    def growing_garden(self, days)
-        self.plants.grow(days)
-        self.plants.age(days)
+    def growing_garden(self)
+        self.plants.grow()
+        self.plants.age()
+        self.plants.show()
 
 def main():
     rose = Plant("Rose", 25, 30)
@@ -46,7 +47,11 @@ def main():
     garden.add_plant(cactus)
 
     print("=== Garden Plant Registry ===")
-    garden.display_plants()
+    garden.show()
+    i = 0
+    days = 5
+    while i < days
+        garden.growing_garden()
 
 if __name__ == "__main__":
 	main()
