@@ -26,10 +26,8 @@ class Garden:
         self.plants.append(plant)
 
     def display_plants(self):
-        i = 0
-        while i < len(self.plants):
-            self.plants[i].show()
-            i += 1
+        for plant in self.plants:
+            self.plants.show()
 
 def main():
     rose = Plant("Rose", 25, 30)
