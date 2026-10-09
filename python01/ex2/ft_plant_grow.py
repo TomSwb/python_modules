@@ -29,6 +29,10 @@ class Garden:
     def display_plants(self):
         for plant in self.plants:
             self.plants.show()
+            
+    def growing_garden(self, days)
+        self.plants.grow(days)
+        self.plants.age(days)
 
 def main():
     rose = Plant("Rose", 25, 30)
