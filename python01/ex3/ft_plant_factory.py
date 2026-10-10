@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -6,7 +7,7 @@
 #    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/10 13:34:45 by tomswb            #+#    #+#              #
-#    Updated: 2026/10/10 13:40:45 by tomswb           ###   ########.fr        #
+#    Updated: 2026/10/10 19:51:47 by tomswb           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,37 +36,36 @@ class Garden:
         
     def display_plants_creation(self):
         for plant in self.plants:
-            print("Created: ", self.plants.show())
+            plant.show()
 
     def display_plants(self):
         for plant in self.plants:
-            self.plants.show()
+            splant.show()
             
     def growing_plant(self):
         for plant in plants:
-            self.plants.grow()
-            self.plants.age()
+            plant.grow()
+            plant.age()
 
 def main():
-    rose = Plant("Rose", 25, 30, 0.8)
+	rose = Plant("Rose", 25, 30, 0.8)
 	oak = Plant("Oak", 200, 365, 10)
-    cactus = Plant("Cactus", 5, 90, 1.6)
+	cactus = Plant("Cactus", 5, 90, 1.6)
 	sunflower = Plant("Sunflower", 80, 45, 1.2)
 	fern = Plant("Fern", 15, 120, 1.6)
 
-    garden = Garden()
+	garden = Garden()
 
-    garden.add_plant(rose)
+	garden.add_plant(rose)
 	garden.add_plant(oak)
-    garden.add_plant(cactus)
+	garden.add_plant(cactus)
 	garden.add_plant(sunflower)
 	garden.add_plant(fern)
 
-    print("=== Plant Factory Output ===")
-    garden.display_plants_creation()
+	print("=== Plant Factory Output ===")
+	garden.display_plants_creation()
 
 if __name__ == "__main__":
 	main()
 
-#!/usr/bin/env python3
 # dont forget chmod 777 to make executable

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -6,7 +7,7 @@
 #    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/09 21:19:59 by tomswb            #+#    #+#              #
-#    Updated: 2026/10/09 21:38:44 by tomswb           ###   ########.fr        #
+#    Updated: 2026/10/10 19:53:44 by tomswb           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +18,7 @@ class Plant:
         self.age = age
         
     def show(self):
-        print(f"{self.name}: {self.height}cm, {self.age} days old" )
+        print(f"{self.name}: {self.height}cm, {self.age} days old")
 
 class Garden:
     def __init__(self):
@@ -28,7 +29,7 @@ class Garden:
 
     def display_plants(self):
         for plant in self.plants:
-            self.plants.show()
+            plant.show()
 
 def main():
     rose = Plant("Rose", 25, 30)

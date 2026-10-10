@@ -6,7 +6,7 @@
 #    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/10 13:24:18 by tomswb            #+#    #+#              #
-#    Updated: 2026/10/10 13:34:20 by tomswb           ###   ########.fr        #
+#    Updated: 2026/10/10 19:57:47 by tomswb           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,12 @@ class Garden:
 
     def display_plants(self):
         for plant in self.plants:
-            self.plants.show()
+            plant.show()
             
     def growing_plant(self):
         for plant in plants:
-            self.plants.grow()
-            self.plants.age()
+            plant.grow()
+            plant.age()
 
 def main():
     rose = Plant("Rose", 25, 30, 0.8)
