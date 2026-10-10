@@ -12,25 +12,25 @@
 # **************************************************************************** #
 
 class Plant:
-	def __init__(self, _name: str = "???", _height: int = 5,
-		_days_old: int = 5, _growth_rate: int = 0.5):
-		if _height < 0:
+	def __init__(self, name: str, height: int,
+		days_old: int, growth_rate: int):
+		if height < 0:
 			print(f"{name}: Error: height can't be negative")
-			return False
+			self._height = 0
 		else:
-			self._height = _height
-		if _days_old < 0:
+			self._height = height
+		if days_old < 0:
 			print(f"{name}: Error: age can't be negative")
-			return False
+			self._days_old = 0
 		else:
-			self._days_old = _days_old
-		self._name = _name
-		self._growth_rate = _growth_rate
+			self._days_old = days_old
+		self._name = name
+		self._growth_rate = growth_rate
 		
 	def show(self):
 		print(
-			f"{self._name}: {self._height:.1f}cm,"
-			f" {self._days_old} days old"
+			f"{self._name}: {self.get_height():.1f}cm, "
+			f"{self.get_age()} days old"
 		)
 		
 	def grow(self):
@@ -57,8 +57,8 @@ class Plant:
 	
 	def	show_current_state(self):
 		print(
-			f"Current state: {self._name}: {self.get_height():.1f}cm,"
-			f" {self.get_age()} days old"
+			f"Current state: {self._name}: {self.get_height():.1f}cm, "
+			f"{self.get_age()} days old"
 		)
 
 	def	get_height(self):
@@ -69,36 +69,28 @@ class Plant:
 
 class Garden:
 	def __init__(self):
-		self.plants = []
+		self._plants = []
 		
 	def add_plant(self, plant):
-		self.plants.append(plant)
+		self._plants.append(plant)
 		print("Plant created:", end =" ")
 		plant.show()
-		
-	def display_plants_creation(self):
-		for plant in self.plants:
-			plant.show()
 
 	def display_plants(self):
-		for plant in self.plants:
+		for plant in self._plants:
 			plant.show()
 			
 	def growing_plant(self):
-		for plant in plants:
+		for plant in self._plants:
 			plant.grow()
 			plant.age()
 
 def main():
-	rose = Plant("Rose", 25, 30, 0.8)
-	# oak = Plant("Oak", 200, 365, 10)
-	# cactus = Plant("Cactus", 5, 90, 1.6)
-	# sunflower = Plant("Sunflower", 80, 45, 1.2)
-	# fern = Plant("Fern", 15, 120, 1.6)
+	print("=== Garden Security System ===")
 
 	garden = Garden()
+	rose = Plant("Rose", -15, -10, 0.8)
 
-	print("=== Garden Security System ===")
 	garden.add_plant(rose)
 	print("")
 	rose.set_height(25)
@@ -108,11 +100,6 @@ def main():
 	rose.set_age(-30)
 	print("")
 	rose.show_current_state()
-
-	# garden.add_plant(oak)
-	# garden.add_plant(cactus)
-	# garden.add_plant(sunflower)
-	# garden.add_plant(fern)
 
 if __name__ == "__main__":
 	main()
