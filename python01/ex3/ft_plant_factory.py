@@ -32,6 +32,10 @@ class Garden:
         
     def add_plant(self, plant):
         self.plants.append(plant)
+        
+    def display_plants_creation(self):
+        for plant in self.plants:
+            print("Created: ", self.plants.show())
 
     def display_plants(self):
         for plant in self.plants:
@@ -58,7 +62,7 @@ def main():
 	garden.add_plant(fern)
 
     print("=== Plant Factory Output ===")
-    garden.display_plants()
+    garden.display_plants_creation()
 
 if __name__ == "__main__":
 	main()
