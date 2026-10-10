@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_plant_grow.py                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/10/10 13:24:18 by tomswb            #+#    #+#              #
+#    Updated: 2026/10/10 13:24:22 by tomswb           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 class Plant:
     def __init__(self, name, height, days_old, growth_rate):
@@ -7,12 +19,12 @@ class Plant:
         self.growth_rate = growth_rate
         
     def show(self):
-        print(f"{self.name}: {round(self.height)}cm, {self.days_old} days old")
+        print(f"{self.name}: {self.height:.1f}cm, {self.days_old} days old")
         
-    def grow(self)
+    def grow(self):
         self.height += self.growth_rate
     
-    def age(self)
+    def age(self):
         self.days_old += 1
     
 class Garden:
@@ -26,7 +38,7 @@ class Garden:
         for plant in self.plants:
             self.plants.show()
             
-    def growing_plant(self)
+    def growing_plant(self):
         for plant in plants:
             self.plants.grow()
             self.plants.age()
@@ -36,7 +48,6 @@ def main():
     sunflower = Plant("Sunflower", 80, 45, 1.2)
     cactus = Plant("Cactus", 15, 120, 1.6)
 
-    plant = Plant()
     garden = Garden()
 
     garden.add_plant(rose)
@@ -44,6 +55,7 @@ def main():
     garden.add_plant(cactus)
 
     print("=== Garden Plant Growth ===")
+    rose.show()
     i = 1
     days = 7
     starting_height = rose.height
@@ -54,10 +66,9 @@ def main():
         rose.show()
         i += 1
     growth = rose.height - starting_height
-    print(f"Growth this week: {round(growth)} cm")
+    print(f"Growth this week: {round(growth, 1)} cm")
 
 if __name__ == "__main__":
 	main()
 
-#!/usr/bin/env python3
 # dont forget chmod 777 to make executable
