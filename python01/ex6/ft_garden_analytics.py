@@ -6,7 +6,7 @@
 #    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/11 19:19:27 by tomswb            #+#    #+#              #
-#    Updated: 2026/10/12 01:28:51 by tomswb           ###   ########.fr        #
+#    Updated: 2026/10/12 01:29:42 by tomswb           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ class	Garden:
 		for plant in self._plants:
 			plant.grow()
 			plant.age()
-
 
 # Plant class: inits the plant and control them
 # Allow to show info, grow the plant and age them
@@ -187,7 +186,6 @@ class	Flower(Plant):
 			self._bloom = True
 		else:
 			self._bloom = False
-
 
 # Seed class adds a seed parameter, holding how many seeds the flower has
 # once bloomed
