@@ -11,7 +11,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-class Plant:
+class	Garden:
+	def __init__(self):
+		self._plants = []
+		
+	def add_plant(self, plant):
+		self._plants.append(plant)
+		print("Plant created:", end =" ")
+		plant.show()
+
+	def display_plants(self):
+		for plant in self._plants:
+			plant.show()
+			
+	def growing_plant(self):
+		for plant in self._plants:
+			plant.grow()
+			plant.age()
+
+class	Plant:
 	def __init__(self, name: str, height: int,
 		days_old: int, growth_rate: int):
 		if height < 0:
@@ -67,23 +85,38 @@ class Plant:
 	def	get_age(self):
 		return self._days_old
 
-class Garden:
-	def __init__(self):
-		self._plants = []
-		
-	def add_plant(self, plant):
-		self._plants.append(plant)
-		print("Plant created:", end =" ")
-		plant.show()
+class	Flower(Plant):
+	def __init__(self, name: str, height: int, days_old: int,
+				growth_rate: int, color: str, bloom: bool):
+		super().__init__(name, height, days_old, growth_rate)
+		self._color = color
+		self._bloom = bloom
+	
+	def	show(self):
+		super().show()
+		print(f"\tColor: {color}")
+		if not bloom:
+			print(f"\t{name} has not bloomed yet")
+		else:
+			print(f"\t{name} is blooming beautifully!")
+	
+	def	bloom():
+		print("[asking the rose to bloom]")
+		bloom = True
 
-	def display_plants(self):
-		for plant in self._plants:
-			plant.show()
-			
-	def growing_plant(self):
-		for plant in self._plants:
-			plant.grow()
-			plant.age()
+class	Tree(Plant):
+	def __init__(self, name: str, height: int, days_old: int,
+				growth_rate: int, trunk_diameter: int, producing_shade: bool):
+		super().__init__(name, height, days_old, growth_rate)
+		self._trunk_diameter = trunk_diameter
+		self._producing_shade = producing_shade
+
+class	Vegetable(Plant):
+	def __init__(self, name: str, height: int,
+		days_old: int, growth_rate: int, harvest_season: str, nutritional_value: int):
+		super().__init__(name, height, days_old, growth_rate)
+		self._harvest_season = harvest_season
+		self._nutritional_value = nutritional_value
 
 def main():
 	print("=== Garden Security System ===")
