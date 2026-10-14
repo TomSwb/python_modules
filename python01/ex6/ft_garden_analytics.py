@@ -6,7 +6,7 @@
 #    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:59:36 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/14 14:29:37 by tomswb           ###   ########.fr       #
+#    Updated: 2026/10/14 14:35:22 by tomswb           ###   ########.fr       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -36,12 +36,12 @@ class Garden:
 # Allow to show info, grow the plant and age them
 # Record calls statistics
 class Plant:
-    def __init__(self, name: str = "???", height: int = 0,
+    def __init__(self, name: str = "???", height: float = 0,
                  days_old: int = 0, growth_rate: float = 0):
         self._name = name.capitalize()
         if height < 0:
             print(f"{name}: Error: height can't be negative")
-            self._height = height
+            self._height = 0
         else:
             self._height = height
         if days_old < 0:
@@ -97,13 +97,13 @@ class Plant:
         self._statistics.record_age()
 
     # Allow to set the height manually
-    def set_height(self, _height: int):
+    def set_height(self, _height: float):
         if _height < 0:
             print(f"{self._name}: Error: height can't be negative")
             print("Height update rejected")
         else:
             self._height = _height
-            print(f"Height updated: {self.get_height}cm")
+            print(f"Height updated: {self.get_height()}cm")
 
     # Allow to set the age manually
     def set_age(self, _days_old: int):
@@ -168,7 +168,7 @@ class Plant:
 # Color is self-explanotory, Bloom allows to see if the flower has bloom or not
 # The show() override allow to display the new information
 class Flower(Plant):
-    def __init__(self, name: str, height: int, days_old: int,
+    def __init__(self, name: str, height: float, days_old: int,
                  growth_rate: int, color: str, bloom: bool):
         super().__init__(name, height, days_old, growth_rate)
         self._color = color.lower()
@@ -193,7 +193,7 @@ class Flower(Plant):
 # Seed class adds a seed parameter, holding how many seeds the flower has
 # once bloomed
 class Seed(Flower):
-    def __init__(self, name: str, height: int, days_old: int,
+    def __init__(self, name: str, height: float, days_old: int,
                  growth_rate: int, color: str, bloom: bool, seeds: int):
         super().__init__(name, height, days_old, growth_rate, color, bloom)
         self._seeds = seeds
@@ -211,7 +211,7 @@ class Seed(Flower):
 # tree has has a shade or not
 # The show() override allow to display the new information
 class Tree(Plant):
-    def __init__(self, name: str, height: int, days_old: int,
+    def __init__(self, name: str, height: float, days_old: int,
                  growth_rate: int, trunk_diameter: int, producing_shade: bool):
         super().__init__(name, height, days_old, growth_rate)
         self._trunk_diameter = trunk_diameter
@@ -238,7 +238,7 @@ class Tree(Plant):
 # Both are self-explanotory.
 # The show() override allow to display the new information
 class Vegetable(Plant):
-    def __init__(self, name: str, height: int, days_old: int,
+    def __init__(self, name: str, height: float, days_old: int,
                  growth_rate: int, harvest_season: str,
                  nutritional_value: int):
         super().__init__(name, height, days_old, growth_rate)
@@ -255,8 +255,8 @@ class Vegetable(Plant):
         print(f"[make {self._name.lower()} grow and age for {time} days]")
 
         for days in range(time):
-            super().grow()
-            super().age()
+            super().grow(time)
+            super().age(time)
             self._nutritional_value += 1
 
 
