@@ -1,35 +1,36 @@
-#!/usr/bin/env python3
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_garden_data.py                                  :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/10/09 21:19:59 by tomswb            #+#    #+#              #
-#    Updated: 2026/10/10 19:53:44 by tomswb           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+# *************************************************************************** #
+#                                                                             #
+#                                                         :::      ::::::::   #
+#    ft_garden_data.py                                  :+:      :+:    :+:   #
+#                                                     +:+ +:+         +:+     #
+#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#                                                 +#+#+#+#+#+   +#+           #
+#    Created: 2026/10/14 13:52:56 by tomswb            #+#    #+#             #
+#    Updated: 2026/10/14 14:11:28 by tomswb           ###   ########.fr       #
+#                                                                             #
+# *************************************************************************** #
 
 class Plant:
     def __init__(self, name, height, age):
         self.name = name
         self.height = height
         self.age = age
-        
+
     def show(self):
         print(f"{self.name}: {self.height}cm, {self.age} days old")
+
 
 class Garden:
     def __init__(self):
         self.plants = []
-        
+
     def add_plant(self, plant):
         self.plants.append(plant)
 
     def display_plants(self):
         for plant in self.plants:
             plant.show()
+
 
 def main():
     rose = Plant("Rose", 25, 30)
@@ -45,8 +46,9 @@ def main():
     print("=== Garden Plant Registry ===")
     garden.display_plants()
 
-if __name__ == "__main__":
-	main()
 
-#!/usr/bin/env python3
-# dont forget chmod 777 to make executable
+if __name__ == "__main__":
+    main()
+
+# #!/usr/bin/env python3
+# dont forget chmod 755 to make executable
