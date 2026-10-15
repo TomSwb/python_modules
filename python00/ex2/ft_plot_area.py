@@ -6,12 +6,12 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/09 09:13:45 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/14 13:48:44 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/15 19:07:12 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
-def ft_plot_area():
+def ft_plot_area() -> None:
     length = int(input("Enter length: "))
     width = int(input("Enter width: "))
     area = length * width
-    print("Plot area:", area)
+    print(f"Plot area: {area}")
