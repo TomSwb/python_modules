@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::   #
 #    ft_seed_inventory.py                               :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
-#    Created: 2026/10/14 13:48:15 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/14 13:50:29 by tomswb           ###   ########.fr       #
+#    Created: 2026/10/14 13:48:15 by tschwab           #+#    #+#             #
+#    Updated: 2026/10/14 13:50:29 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 

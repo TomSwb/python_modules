@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::   #
 #    ft_garden_name.py                                  :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
-#    Created: 2026/10/09 09:06:10 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/09 09:12:36 by tomswb           ###   ########.fr       #
+#    Created: 2026/10/09 09:06:10 by tschwab           #+#    #+#             #
+#    Updated: 2026/10/09 09:12:36 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 

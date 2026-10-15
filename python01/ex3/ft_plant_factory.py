@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::   #
 #    ft_plant_factory.py                                :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
-#    Created: 2026/10/14 13:53:48 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/14 14:15:15 by tomswb           ###   ########.fr       #
+#    Created: 2026/10/14 13:53:48 by tschwab           #+#    #+#             #
+#    Updated: 2026/10/14 14:15:15 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 

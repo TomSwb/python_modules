@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::   #
 #    ft_harvest_total.py                                :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
-#    Created: 2026/10/14 13:47:44 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/14 13:49:04 by tomswb           ###   ########.fr       #
+#    Created: 2026/10/14 13:47:44 by tschwab           #+#    #+#             #
+#    Updated: 2026/10/14 13:49:04 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 

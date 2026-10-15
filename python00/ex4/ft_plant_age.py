@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::   #
 #    ft_plant_age.py                                    :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
-#    Created: 2026/10/14 13:47:53 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/14 13:49:21 by tomswb           ###   ########.fr       #
+#    Created: 2026/10/14 13:47:53 by tschwab           #+#    #+#             #
+#    Updated: 2026/10/14 13:49:21 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 

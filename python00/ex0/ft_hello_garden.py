@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::   #
 #    ft_hello_garden.py                                 :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
-#    Created: 2026/10/09 08:58:58 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/09 09:01:10 by tomswb           ###   ########.fr       #
+#    Created: 2026/10/09 08:58:58 by tschwab           #+#    #+#             #
+#    Updated: 2026/10/09 09:01:10 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 

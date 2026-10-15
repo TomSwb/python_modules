@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::   #
 #    ft_plant_types.py                                  :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
-#    Created: 2026/10/14 13:56:35 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/14 14:20:41 by tomswb           ###   ########.fr       #
+#    Created: 2026/10/14 13:56:35 by tschwab           #+#    #+#             #
+#    Updated: 2026/10/14 14:20:41 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 

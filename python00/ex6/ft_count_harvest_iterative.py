@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::   #
 #    ft_count_harvest_iterative.py                      :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
-#    By: tomswb <tomswb@student.42.fr>              +#+  +:+       +#+        #
+#    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
-#    Created: 2026/10/14 13:48:05 by tomswb            #+#    #+#             #
-#    Updated: 2026/10/14 13:49:53 by tomswb           ###   ########.fr       #
+#    Created: 2026/10/14 13:48:05 by tschwab           #+#    #+#             #
+#    Updated: 2026/10/14 13:49:53 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
