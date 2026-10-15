@@ -6,9 +6,9 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/09 08:58:58 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/09 09:01:10 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/15 18:58:26 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
-def ft_hello_garden():
+def ft_hello_garden() -> None:
     print("Hello, Garden Community!")
