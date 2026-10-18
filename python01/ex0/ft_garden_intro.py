@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:52:22 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 17:56:37 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:45:22 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -22,4 +22,5 @@ def main() -> None:
 if __name__ == "__main__":
     print("=== Welcome to My Garden ===")
     main()
+    print()
     print("=== End of Program ===")

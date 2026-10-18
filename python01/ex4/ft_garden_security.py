@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:55:14 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:37:32 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:43:55 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -15,7 +15,7 @@ class Plant:
                  days_old: int, growth_rate: float) -> None:
         if height < 0:
             print(f"{name}: Error: height can't be negative")
-            self._height = 0
+            self._height = 0.0
         else:
             self._height = height
         if days_old < 0:
@@ -40,7 +40,7 @@ class Plant:
 
     def set_height(self, _height: float) -> None:
         if _height < 0:
-            print(f"{self._name}: Error: height can't be negative")
+            print(f"{self._name}: Error, height can't be negative")
             print("Height update rejected")
         else:
             self._height = _height
@@ -48,7 +48,7 @@ class Plant:
 
     def set_age(self, _days_old: int) -> None:
         if _days_old < 0:
-            print(f"{self._name}: Error: age can't be negative")
+            print(f"{self._name}: Error, age can't be negative")
             print("Age update rejected")
         else:
             self._days_old = _days_old
@@ -69,21 +69,18 @@ class Plant:
 
 def main() -> None:
     print("=== Garden Security System ===")
-    rose = Plant("Rose", -15, -10, 0.8)
+    rose = Plant("Rose", 15, 10, 0.8)
+    print("Plant created:", end=" ")
     rose.show()
-    print("")
+    print()
     rose.set_height(25)
     rose.set_age(30)
-    print("")
+    print()
     rose.set_height(-25)
     rose.set_age(-30)
-    print("")
+    print()
     rose.show_current_state()
 
 
 if __name__ == "__main__":
     main()
-
-
-# #!/usr/bin/env python3
-# dont forget chmod 755 to make executable
