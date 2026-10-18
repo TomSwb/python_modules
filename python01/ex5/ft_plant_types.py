@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:56:35 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 19:21:10 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 19:25:49 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -38,20 +38,20 @@ class Plant:
     def age(self) -> None:
         self._days_old += 1
 
-    def set_height(self, _height: float) -> None:
-        if _height < 0:
+    def set_height(self, height: float) -> None:
+        if height < 0:
             print(f"{self._name}: Error, height can't be negative")
             print("Height update rejected")
         else:
-            self._height = _height
+            self._height = height
             print(f"Height updated: {self._height}cm")
 
-    def set_age(self, _days_old: int) -> None:
-        if _days_old < 0:
+    def set_age(self, days_old: int) -> None:
+        if days_old < 0:
             print(f"{self._name}: Error, age can't be negative")
             print("Age update rejected")
         else:
-            self._days_old = _days_old
+            self._days_old = days_old
             print(f"Age updated: {self._days_old} days")
 
     def show_current_state(self) -> None:
