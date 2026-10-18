@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:52:22 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 17:50:32 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 17:56:37 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -23,6 +23,3 @@ if __name__ == "__main__":
     print("=== Welcome to My Garden ===")
     main()
     print("=== End of Program ===")
-
-# #!/usr/bin/env python3
-# dont forget chmod 755 to make executable
