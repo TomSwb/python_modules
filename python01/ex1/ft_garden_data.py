@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:52:56 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:01:02 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:05:53 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -22,9 +22,9 @@ class Plant:
 
 class Garden:
     def __init__(self) -> None:
-        self.plants = []
+        self.plants: list[Plant] = []
 
-    def add_plant(self, plant) -> None:
+    def add_plant(self, plant: Plant) -> None:
         self.plants.append(plant)
 
     def display_plants(self) -> None:
