@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:56:35 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 19:13:08 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 19:21:10 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -122,7 +122,7 @@ class Vegetable(Plant):
     def age(self) -> None:
         super().age()
         self._nutritional_value += 1
-        
+
     def grow_and_age(self, time: int) -> None:
         for _ in range(time):
             super().grow()
@@ -138,20 +138,20 @@ def main() -> None:
 
     print("=== Flower")
     rose.show()
-    print(f"[asking the rose to bloom]")
+    print("[asking the rose to bloom]")
     rose.bloom()
     rose.show()
     print()
 
     print("=== Tree")
     oak.show()
-    print(f"[asking the oak to produce shade]")
+    print("[asking the oak to produce shade]")
     oak.produce_shade()
     print()
 
     print("=== Vegetable")
     tomato.show()
-    print(f"[make tomato grow and age for 20 days]")
+    print("[make tomato grow and age for 20 days]")
     tomato.grow_and_age(20)
     tomato.show()
 
