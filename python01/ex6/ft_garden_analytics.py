@@ -6,47 +6,25 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:59:36 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/14 14:35:22 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 19:42:51 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
-
-# Garden class, initialising the whole garden array,
-# Allow to see the whole garden registry
-# Allow to grow the whole garden at once
-class Garden:
-    def __init__(self):
-        self._plants = []
-
-    def add_plant(self, plant):
-        self._plants.append(plant)
-        # print("Plant created:", end =" ")
-        # plant.show()
-
-    def display_plants(self):
-        for plant in self._plants:
-            plant.show()
-
-    def growing_plant(self):
-        for plant in self._plants:
-            plant.grow()
-            plant.age()
-
 
 # Plant class: inits the plant and control them
 # Allow to show info, grow the plant and age them
 # Record calls statistics
 class Plant:
-    def __init__(self, name: str = "???", height: float = 0,
-                 days_old: int = 0, growth_rate: float = 0):
+    def __init__(self, name: str, height: float,
+                 days_old: int, growth_rate: float) -> None:
         self._name = name.capitalize()
         if height < 0:
-            print(f"{name}: Error: height can't be negative")
-            self._height = 0
+            print(f"{self._name}: Error, height can't be negative")
+            self._height = 0.0
         else:
             self._height = height
         if days_old < 0:
-            print(f"{name}: Error: age can't be negative")
-            self._days_old = days_old
+            print(f"{self._name}: Error, age can't be negative")
+            self._days_old = 0
         else:
             self._days_old = days_old
         self._growth_rate = growth_rate
@@ -54,13 +32,13 @@ class Plant:
 
     # Anonymous init of a plant if needed
     @classmethod
-    def anonymous(cls):
+    def anonymous(cls) -> Plant:
         return cls("Unknown plant", 0, 0, 0)
 
     # ---- Display methods ----#
 
     # Display the plant main information
-    def show(self):
+    def show(self) -> None:
         print(
             f"{self._name}: {self.get_height():.1f}cm, "
             f"{self.get_age()} days old"
@@ -68,93 +46,93 @@ class Plant:
         self._statistics.record_show()
 
     # Display the plant current state
-    def show_current_state(self):
+    def show_current_state(self) -> None:
         print(
             f"Current state: {self._name}: {self.get_height():.1f}cm, "
             f"{self.get_age()} days old"
         )
 
     # Displays the plant calls statistics
-    def show_statistics(self):
+    def show_statistics(self) -> None:
         self._statistics.show()
 
     # ---- Growth and Aging related methods ---- #
 
     # Grows the plant by one time its growth rate
-    def grow(self, _growth: float):
-        if _growth == 0:
+    def grow(self, growth: float) -> None:
+        if growth == 0:
             self._height += self._growth_rate
         else:
-            self._height += _growth
+            self._height += growth
         self._statistics.record_growth()
 
     # Ages the plant by one day
-    def age(self, _days: int):
-        if _days == 0:
+    def age(self, days: int) -> None:
+        if days == 0:
             self._days_old += 1
         else:
-            self._days_old += _days
+            self._days_old += days
         self._statistics.record_age()
 
     # Allow to set the height manually
-    def set_height(self, _height: float):
-        if _height < 0:
-            print(f"{self._name}: Error: height can't be negative")
+    def set_height(self, height: float) -> None:
+        if height < 0:
+            print(f"{self._name}: Error, height can't be negative")
             print("Height update rejected")
         else:
-            self._height = _height
+            self._height = height
             print(f"Height updated: {self.get_height()}cm")
 
     # Allow to set the age manually
-    def set_age(self, _days_old: int):
-        if _days_old < 0:
-            print(f"{self._name}: Error: age can't be negative")
+    def set_age(self, days_old: int) -> None:
+        if days_old < 0:
+            print(f"{self._name}: Error, age can't be negative")
             print("Age update rejected")
         else:
-            self._days_old = _days_old
+            self._days_old = days_old
             print(f"Age updated: {self.get_age()} days")
 
     # Return the height of the plant
-    def get_height(self):
+    def get_height(self) -> float:
         return self._height
 
     # Return the age of the plant
-    def get_age(self):
+    def get_age(self) -> int:
         return self._days_old
 
     # static method to see if an age is more than a year or not
     @staticmethod
-    def is_older_than_a_year(_age):
-        if _age < 365:
-            print(f"Is {_age} days more than a year? -> False")
+    def is_older_than_a_year(age: int) -> None:
+        if age < 365:
+            print(f"Is {age} days more than a year? -> False")
         else:
-            print(f"Is {_age} days more than a year? -> True")
+            print(f"Is {age} days more than a year? -> True")
 
     # ---- Statistics ---- #
 
     # Stat class records different functions calls
     # Display shades calls only if the instance is a Tree
     class Statistics:
-        def __init__(self, plant):
+        def __init__(self, plant: Plant) -> None:
             self._plant = plant
             self._show_calls = 0
             self._grow_calls = 0
             self._age_calls = 0
             self._producing_shade_calls = 0
 
-        def record_show(self):
+        def record_show(self) -> None:
             self._show_calls += 1
 
-        def record_growth(self):
+        def record_growth(self) -> None:
             self._grow_calls += 1
 
-        def record_age(self):
+        def record_age(self) -> None:
             self._age_calls += 1
 
-        def record_producing_shade(self):
+        def record_producing_shade(self) -> None:
             self._producing_shade_calls += 1
 
-        def show(self):
+        def show(self) -> None:
             print(f"[statistics for {self._plant._name}]")
             print(
                 f"Stats: {self._grow_calls} grow, {self._age_calls} age, "
@@ -169,12 +147,12 @@ class Plant:
 # The show() override allow to display the new information
 class Flower(Plant):
     def __init__(self, name: str, height: float, days_old: int,
-                 growth_rate: int, color: str, bloom: bool):
+                 growth_rate: float, color: str, bloom: bool) -> None:
         super().__init__(name, height, days_old, growth_rate)
         self._color = color.lower()
         self._bloom = bloom
 
-    def show(self):
+    def show(self) -> None:
         super().show()
         print(f" Color: {self._color}")
         if not self._bloom:
@@ -183,7 +161,7 @@ class Flower(Plant):
             print(f" {self._name} is blooming beautifully!")
 
     # Sets the bloom status
-    def bloom(self):
+    def bloom(self) -> None:
         if self._bloom is False:
             self._bloom = True
         else:
@@ -194,11 +172,12 @@ class Flower(Plant):
 # once bloomed
 class Seed(Flower):
     def __init__(self, name: str, height: float, days_old: int,
-                 growth_rate: int, color: str, bloom: bool, seeds: int):
+                 growth_rate: float, color: str, bloom: bool,
+                 seeds: int) -> None:
         super().__init__(name, height, days_old, growth_rate, color, bloom)
         self._seeds = seeds
 
-    def show(self):
+    def show(self) -> None:
         super().show()
         if not self._bloom:
             print(" Seeds: 0")
@@ -212,17 +191,18 @@ class Seed(Flower):
 # The show() override allow to display the new information
 class Tree(Plant):
     def __init__(self, name: str, height: float, days_old: int,
-                 growth_rate: int, trunk_diameter: int, producing_shade: bool):
+                 growth_rate: int, trunk_diameter: int,
+                 producing_shade: bool) -> None:
         super().__init__(name, height, days_old, growth_rate)
         self._trunk_diameter = trunk_diameter
         self._producing_shade = producing_shade
 
-    def show(self):
+    def show(self) -> None:
         super().show()
         print(f" Trunk diameter: {self._trunk_diameter:.1f}cm")
 
     # Sets the produce shade status
-    def produce_shade(self):
+    def produce_shade(self) -> None:
         if self._producing_shade is False:
             self._producing_shade = True
             print(
@@ -239,32 +219,31 @@ class Tree(Plant):
 # The show() override allow to display the new information
 class Vegetable(Plant):
     def __init__(self, name: str, height: float, days_old: int,
-                 growth_rate: int, harvest_season: str,
-                 nutritional_value: int):
+                 growth_rate: float, harvest_season: str,
+                 nutritional_value: int) -> None:
         super().__init__(name, height, days_old, growth_rate)
         self._harvest_season = harvest_season.capitalize()
         self._nutritional_value = nutritional_value
 
-    def show(self):
+    def show(self) -> None:
         super().show()
         print(f" Harvest season: {self._harvest_season}")
         print(f" Nutritional value: {self._nutritional_value}")
 
+    # age() override allows to increment the nutritional value
+    def age(self, days: int) -> None:
+        super().age(days)
+        self._nutritional_value += 1
+
     # Allow the vegie to both grow and age at the same time
-    def grow_and_age(self, time: int):
-        print(f"[make {self._name.lower()} grow and age for {time} days]")
-
-        for days in range(time):
-            super().grow(time)
-            super().age(time)
-            self._nutritional_value += 1
+    def grow_and_age(self, time: int) -> None:
+        for _ in range(time):
+            super().grow(0)
+            self.age(1)
 
 
-def main():
+def main() -> None:
     print("=== Garden statistics ===")
-
-    # Create the garden
-    garden = Garden()
 
     # Create the different plants for the garden
     rose = Flower("Rose", 15, 10, 0.8, "red", False)
@@ -272,19 +251,14 @@ def main():
     sunflower = Seed("Sunflower", 80, 45, 1.5, "yellow", False, 42)
     anonymous = Plant.anonymous()
 
-    # Addubg all the plants to the garden, allows to display them all
-    garden.add_plant(rose)
-    garden.add_plant(oak)
-    garden.add_plant(sunflower)
-    garden.add_plant(anonymous)
-
     # Testing year old check function
     print("=== Check year-old")
     Plant.is_older_than_a_year(30)
     Plant.is_older_than_a_year(400)
+    print()
 
     # Testing flower display, functions and stats
-    print("\n=== Flower")
+    print("=== Flower")
     rose.show()
     rose.show_statistics()
     print("[asking the rose to grow and bloom]")
@@ -292,17 +266,19 @@ def main():
     rose.bloom()
     rose.show()
     rose.show_statistics()
+    print()
 
     # Testing tree display, functions and stats
-    print("\n=== Tree")
+    print("=== Tree")
     oak.show()
     oak.show_statistics()
     print("[asking the oak to produce shade]")
     oak.produce_shade()
     oak.show_statistics()
+    print()
 
     # Testing seed display, functions and stats
-    print("\n=== Seed")
+    print("=== Seed")
     sunflower.show()
     print("[make sunflower grow, age and bloom]")
     sunflower.grow(30)
@@ -310,16 +286,13 @@ def main():
     sunflower.bloom()
     sunflower.show()
     sunflower.show_statistics()
+    print()
 
     # Testing anonymous display and stats
-    print("\n=== Anonymous")
+    print("=== Anonymous")
     anonymous.show()
     anonymous.show_statistics()
 
 
 if __name__ == "__main__":
     main()
-
-
-# #!/usr/bin/env python3
-# dont forget chmod 755 to make executable
