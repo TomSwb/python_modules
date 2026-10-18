@@ -6,13 +6,13 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:55:14 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/14 14:17:34 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:37:32 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
 class Plant:
-    def __init__(self, name: str, height: int,
-                 days_old: int, growth_rate: int):
+    def __init__(self, name: str, height: float,
+                 days_old: int, growth_rate: float) -> None:
         if height < 0:
             print(f"{name}: Error: height can't be negative")
             self._height = 0
@@ -26,19 +26,19 @@ class Plant:
         self._name = name
         self._growth_rate = growth_rate
 
-    def show(self):
+    def show(self) -> None:
         print(
             f"{self._name}: {self.get_height():.1f}cm, "
             f"{self.get_age()} days old"
         )
 
-    def grow(self):
+    def grow(self) -> None:
         self._height += self._growth_rate
 
-    def age(self):
+    def age(self) -> None:
         self._days_old += 1
 
-    def set_height(self, _height: int):
+    def set_height(self, _height: float) -> None:
         if _height < 0:
             print(f"{self._name}: Error: height can't be negative")
             print("Height update rejected")
@@ -46,7 +46,7 @@ class Plant:
             self._height = _height
             print(f"Height updated: {self._height}cm")
 
-    def set_age(self, _days_old: int):
+    def set_age(self, _days_old: int) -> None:
         if _days_old < 0:
             print(f"{self._name}: Error: age can't be negative")
             print("Age update rejected")
@@ -54,45 +54,23 @@ class Plant:
             self._days_old = _days_old
             print(f"Age updated: {self._days_old} days")
 
-    def show_current_state(self):
+    def show_current_state(self) -> None:
         print(
             f"Current state: {self._name}: {self.get_height():.1f}cm, "
             f"{self.get_age()} days old"
         )
 
-    def get_height(self):
+    def get_height(self) -> float:
         return self._height
 
-    def get_age(self):
+    def get_age(self) -> int:
         return self._days_old
 
 
-class Garden:
-    def __init__(self):
-        self._plants = []
-
-    def add_plant(self, plant):
-        self._plants.append(plant)
-        print("Plant created:", end=" ")
-        plant.show()
-
-    def display_plants(self):
-        for plant in self._plants:
-            plant.show()
-
-    def growing_plant(self):
-        for plant in self._plants:
-            plant.grow()
-            plant.age()
-
-
-def main():
+def main() -> None:
     print("=== Garden Security System ===")
-
-    garden = Garden()
     rose = Plant("Rose", -15, -10, 0.8)
-
-    garden.add_plant(rose)
+    rose.show()
     print("")
     rose.set_height(25)
     rose.set_age(30)
