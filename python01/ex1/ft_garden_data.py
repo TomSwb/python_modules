@@ -6,12 +6,12 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:52:56 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:05:53 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:07:43 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
 class Plant:
-    def __init__(self, name: str, height: float, age: int) -> None:
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
         self.height = height
         self.age = age
