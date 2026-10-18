@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:59:36 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 20:04:16 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 20:17:08 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -55,19 +55,17 @@ class Plant:
     # ---- Growth and Aging related methods ---- #
 
     # Grows the plant by one time its growth rate
-    def grow(self, growth: float) -> None:
-        if growth == 0:
-            self._height += self._growth_rate
-        else:
-            self._height += growth
+    def grow(self, growth: float | None = None) -> None:
+        if growth is None:
+            growth = self._growth_rate
+        self._height += growth
         self._statistics.record_growth()
 
     # Ages the plant by one day
-    def age(self, days: int) -> None:
-        if days == 0:
-            self._days_old += 1
-        else:
-            self._days_old += days
+    def age(self, days: int | None = None) -> None:
+        if days is None:
+            days = 1
+        self._days_old += days
         self._statistics.record_age()
 
     # Allow to set the height manually
@@ -106,11 +104,11 @@ class Plant:
 
     # static method to see if an age is more than a year or not
     @staticmethod
-    def is_older_than_a_year(age: int) -> None:
+    def is_older_than_a_year(age: int) -> bool:
         if age <= 365:
-            print(f"Is {age} days more than a year? -> False")
+            return (False)
         else:
-            print(f"Is {age} days more than a year? -> True")
+            return (True)
 
     # ---- Statistics ---- #
 
@@ -167,10 +165,7 @@ class Flower(Plant):
 
     # Sets the bloom status
     def bloom(self) -> None:
-        if self._bloom is False:
-            self._bloom = True
-        else:
-            self._bloom = False
+        self._bloom = True
 
 
 # Seed class adds a seed parameter, holding how many seeds the flower has
@@ -196,7 +191,7 @@ class Seed(Flower):
 # The show() override allow to display the new information
 class Tree(Plant):
     def __init__(self, name: str, height: float, days_old: int,
-                 growth_rate: float, trunk_diameter: int,
+                 growth_rate: float, trunk_diameter: float,
                  producing_shade: bool) -> None:
         super().__init__(name, height, days_old, growth_rate)
         self._trunk_diameter = trunk_diameter
@@ -212,15 +207,12 @@ class Tree(Plant):
 
     # Sets the produce shade status
     def produce_shade(self) -> None:
-        if self._producing_shade is False:
-            self._producing_shade = True
-            print(
-                f"Tree {self._name} now produces a shade of {self._height:.1f}"
-                f"cm long and {self._trunk_diameter:.1f}cm wide."
-                )
-            self._statistics.record_producing_shade()
-        else:
-            self._producing_shade = False
+        self._producing_shade = True
+        print(
+            f"Tree {self._name} now produces a shade of {self._height:.1f}"
+            f"cm long and {self._trunk_diameter:.1f}cm wide."
+            )
+        self._statistics.record_producing_shade()
 
 
 # Vegetable class adds a harvest season and a nutritional value
@@ -240,15 +232,17 @@ class Vegetable(Plant):
         print(f" Nutritional value: {self._nutritional_value}")
 
     # age() override allows to increment the nutritional value
-    def age(self, days: int) -> None:
+    def age(self, days: int | None = None) -> None:
+        if days is None:
+            days = 1
         super().age(days)
         self._nutritional_value += days
 
     # Allow the vegie to both grow and age at the same time
     def grow_and_age(self, time: int) -> None:
         for _ in range(time):
-            super().grow(0)
-            self.age(1)
+            self.grow()
+            self.age()
 
 
 # Displays the statistics
@@ -267,8 +261,10 @@ def main() -> None:
 
     # Testing year old check function
     print("=== Check year-old")
-    Plant.is_older_than_a_year(30)
-    Plant.is_older_than_a_year(400)
+    result = Plant.is_older_than_a_year(30)
+    print(f"Is 30 days more than a year? -> {result}")
+    result = Plant.is_older_than_a_year(400)
+    print(f"Is 400 days more than a year? -> {result}")
     print()
 
     # Testing flower display, functions and stats
