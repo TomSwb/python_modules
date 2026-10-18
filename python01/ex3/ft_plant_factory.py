@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:53:48 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:31:45 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:56:47 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -30,18 +30,23 @@ class Plant:
 
 def main() -> None:
     print("=== Plant Factory Output ===")
+
     rose = Plant("Rose", 25, 30, 0.8)
     print("Created:", end=" ")
     rose.show()
+    
     oak = Plant("Oak", 200, 365, 10)
     print("Created:", end=" ")
     oak.show()
+    
     cactus = Plant("Cactus", 5, 90, 1.6)
     print("Created:", end=" ")
     cactus.show()
+    
     sunflower = Plant("Sunflower", 80, 45, 1.2)
     print("Created:", end=" ")
     sunflower.show()
+    
     fern = Plant("Fern", 15, 120, 1.6)
     print("Created:", end=" ")
     fern.show()
