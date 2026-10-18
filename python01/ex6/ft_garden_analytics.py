@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:59:36 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 19:42:51 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 19:48:57 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -32,7 +32,7 @@ class Plant:
 
     # Anonymous init of a plant if needed
     @classmethod
-    def anonymous(cls) -> Plant:
+    def anonymous(cls) -> "Plant":
         return cls("Unknown plant", 0, 0, 0)
 
     # ---- Display methods ----#
@@ -51,10 +51,6 @@ class Plant:
             f"Current state: {self._name}: {self.get_height():.1f}cm, "
             f"{self.get_age()} days old"
         )
-
-    # Displays the plant calls statistics
-    def show_statistics(self) -> None:
-        self._statistics.show()
 
     # ---- Growth and Aging related methods ---- #
 
@@ -233,13 +229,18 @@ class Vegetable(Plant):
     # age() override allows to increment the nutritional value
     def age(self, days: int) -> None:
         super().age(days)
-        self._nutritional_value += 1
+        self._nutritional_value += days
 
     # Allow the vegie to both grow and age at the same time
     def grow_and_age(self, time: int) -> None:
         for _ in range(time):
             super().grow(0)
             self.age(1)
+
+
+# Displays the statistics
+def show_statistics(self) -> None:
+    self._statistics.show()
 
 
 def main() -> None:
