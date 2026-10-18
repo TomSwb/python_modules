@@ -6,22 +6,22 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:56:35 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:55:30 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 19:13:08 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
 class Plant:
-    def __init__(self, name: str = "???", height: float = 0,
-                 days_old: int = 0, growth_rate: float = 0) -> None:
+    def __init__(self, name: str, height: float,
+                 days_old: int, growth_rate: float) -> None:
         self._name = name.capitalize()
         if height < 0:
-            print(f"{name}: Error, height can't be negative")
+            print(f"{self._name}: Error, height can't be negative")
             self._height = 0.0
         else:
             self._height = height
         if days_old < 0:
-            print(f"{name}: Error, age can't be negative")
-            self._days_old = days_old
+            print(f"{self._name}: Error, age can't be negative")
+            self._days_old = 0
         else:
             self._days_old = days_old
         self._growth_rate = growth_rate
@@ -83,7 +83,6 @@ class Flower(Plant):
             print(f" {self._name} is blooming beautifully!")
 
     def bloom(self) -> None:
-        print(f"[asking the {self._name.lower()} to bloom]")
         self._bloom = True
 
 
@@ -100,7 +99,6 @@ class Tree(Plant):
         print(f" Trunk diameter: {self._trunk_diameter:.1f}cm")
 
     def produce_shade(self) -> None:
-        print(f"[asking the {self._name.lower()} to produce shade]")
         self._producing_shade = True
         print(
             f"Tree {self._name} now produces a shade of {self._height:.1f}cm "
@@ -121,12 +119,14 @@ class Vegetable(Plant):
         print(f" Harvest season: {self._harvest_season}")
         print(f" Nutritional value: {self._nutritional_value}")
 
+    def age(self) -> None:
+        super().age()
+        self._nutritional_value += 1
+        
     def grow_and_age(self, time: int) -> None:
-        print(f"[make {self._name.lower()} grow and age for {time} days]")
-        for days in range(time):
+        for _ in range(time):
             super().grow()
-            super().age()
-            self._nutritional_value += 1
+            self.age()
 
 
 def main() -> None:
@@ -138,17 +138,20 @@ def main() -> None:
 
     print("=== Flower")
     rose.show()
+    print(f"[asking the rose to bloom]")
     rose.bloom()
     rose.show()
     print()
 
-    print("\n=== Tree")
+    print("=== Tree")
     oak.show()
+    print(f"[asking the oak to produce shade]")
     oak.produce_shade()
     print()
 
-    print("\n=== Vegetable")
+    print("=== Vegetable")
     tomato.show()
+    print(f"[make tomato grow and age for 20 days]")
     tomato.grow_and_age(20)
     tomato.show()
 
