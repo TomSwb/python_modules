@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:55:14 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:43:55 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:47:58 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -14,12 +14,12 @@ class Plant:
     def __init__(self, name: str, height: float,
                  days_old: int, growth_rate: float) -> None:
         if height < 0:
-            print(f"{name}: Error: height can't be negative")
+            print(f"{name}: Error, height can't be negative")
             self._height = 0.0
         else:
             self._height = height
         if days_old < 0:
-            print(f"{name}: Error: age can't be negative")
+            print(f"{name}: Error, age can't be negative")
             self._days_old = 0
         else:
             self._days_old = days_old
