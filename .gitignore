@@ -1,2 +1,3 @@
 *.pdf
-main.py
+__pycache__/
+python00/main.py
