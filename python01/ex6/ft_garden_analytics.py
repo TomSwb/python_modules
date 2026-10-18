@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:59:36 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 19:48:57 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 20:04:16 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -88,6 +88,14 @@ class Plant:
             self._days_old = days_old
             print(f"Age updated: {self.get_age()} days")
 
+    # Return the name of the instance
+    def get_name(self) -> str:
+        return self._name
+
+    # shows the statistics of the instance
+    def show_statistics(self) -> None:
+        self._statistics.show()
+
     # Return the height of the plant
     def get_height(self) -> float:
         return self._height
@@ -99,7 +107,7 @@ class Plant:
     # static method to see if an age is more than a year or not
     @staticmethod
     def is_older_than_a_year(age: int) -> None:
-        if age < 365:
+        if age <= 365:
             print(f"Is {age} days more than a year? -> False")
         else:
             print(f"Is {age} days more than a year? -> True")
@@ -109,7 +117,7 @@ class Plant:
     # Stat class records different functions calls
     # Display shades calls only if the instance is a Tree
     class Statistics:
-        def __init__(self, plant: Plant) -> None:
+        def __init__(self, plant: "Plant") -> None:
             self._plant = plant
             self._show_calls = 0
             self._grow_calls = 0
@@ -128,14 +136,15 @@ class Plant:
         def record_producing_shade(self) -> None:
             self._producing_shade_calls += 1
 
+        def get_producing_shade_calls(self) -> int:
+            return self._producing_shade_calls
+
         def show(self) -> None:
-            print(f"[statistics for {self._plant._name}]")
+            print(f"[statistics for {self._plant.get_name()}]")
             print(
                 f"Stats: {self._grow_calls} grow, {self._age_calls} age, "
                 f"{self._show_calls} show"
-                )
-            if isinstance(self._plant, Tree):
-                print(f" {self._producing_shade_calls} shade")
+            )
 
 
 # Flower class adds a color and bloom parameters
@@ -187,7 +196,7 @@ class Seed(Flower):
 # The show() override allow to display the new information
 class Tree(Plant):
     def __init__(self, name: str, height: float, days_old: int,
-                 growth_rate: int, trunk_diameter: int,
+                 growth_rate: float, trunk_diameter: int,
                  producing_shade: bool) -> None:
         super().__init__(name, height, days_old, growth_rate)
         self._trunk_diameter = trunk_diameter
@@ -196,6 +205,10 @@ class Tree(Plant):
     def show(self) -> None:
         super().show()
         print(f" Trunk diameter: {self._trunk_diameter:.1f}cm")
+
+    def show_statistics(self) -> None:
+        super().show_statistics()
+        print(f" {self._statistics.get_producing_shade_calls()} shade")
 
     # Sets the produce shade status
     def produce_shade(self) -> None:
@@ -239,8 +252,8 @@ class Vegetable(Plant):
 
 
 # Displays the statistics
-def show_statistics(self) -> None:
-    self._statistics.show()
+def display_statistics(plant: Plant) -> None:
+    plant.show_statistics()
 
 
 def main() -> None:
@@ -261,21 +274,21 @@ def main() -> None:
     # Testing flower display, functions and stats
     print("=== Flower")
     rose.show()
-    rose.show_statistics()
+    display_statistics(rose)
     print("[asking the rose to grow and bloom]")
     rose.grow(8)
     rose.bloom()
     rose.show()
-    rose.show_statistics()
+    display_statistics(rose)
     print()
 
     # Testing tree display, functions and stats
     print("=== Tree")
     oak.show()
-    oak.show_statistics()
+    display_statistics(oak)
     print("[asking the oak to produce shade]")
     oak.produce_shade()
-    oak.show_statistics()
+    display_statistics(oak)
     print()
 
     # Testing seed display, functions and stats
@@ -286,13 +299,13 @@ def main() -> None:
     sunflower.age(20)
     sunflower.bloom()
     sunflower.show()
-    sunflower.show_statistics()
+    display_statistics(sunflower)
     print()
 
     # Testing anonymous display and stats
     print("=== Anonymous")
     anonymous.show()
-    anonymous.show_statistics()
+    display_statistics(anonymous)
 
 
 if __name__ == "__main__":
