@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:53:48 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:29:10 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:31:45 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -45,6 +45,7 @@ def main() -> None:
     fern = Plant("Fern", 15, 120, 1.6)
     print("Created:", end=" ")
     fern.show()
+
 
 if __name__ == "__main__":
     main()

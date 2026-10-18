@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:52:56 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:30:03 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 18:32:14 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -26,7 +26,7 @@ def main() -> None:
     cactus = Plant("Cactus", 15, 120)
 
     print("=== Garden Plant Registry ===")
-    rose,show()
+    rose.show()
     sunflower.show()
     cactus.show()
 
