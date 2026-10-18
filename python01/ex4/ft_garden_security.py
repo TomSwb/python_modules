@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/10/14 13:55:14 by tschwab           #+#    #+#             #
-#    Updated: 2026/10/18 18:56:34 by tschwab          ###   ########.ch       #
+#    Updated: 2026/10/18 19:22:10 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -69,7 +69,7 @@ class Plant:
 
 def main() -> None:
     print("=== Garden Security System ===")
-    
+
     rose = Plant("Rose", 15, 10, 0.8)
     print("Plant created:", end=" ")
     rose.show()
@@ -82,7 +82,7 @@ def main() -> None:
     rose.set_height(-25)
     rose.set_age(-30)
     print()
-    
+
     rose.show_current_state()
 
 
