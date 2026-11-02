@@ -4,7 +4,7 @@ def input_temperature(temp_str: str) -> int:
     return temp
 
 
-def test_temperature():
+def test_temperature() -> None:
     test1 = "25"
     test2 = "abc"
 
@@ -15,14 +15,14 @@ def test_temperature():
         temp1 = input_temperature(test1)
         print(f"Temperature is now {temp1}°C")
     except ValueError as e:
-        print(f"Caught: input_temperature error: {e}")
+        print(f"Caught input_temperature error: {e}")
 
     try:
         print(f"Input data is '{test2}'")
         temp2 = input_temperature(test2)
         print(f"Temperature is now {temp2}°C")
     except ValueError as e:
-        print(f"Caught: input_temperature error: {e}")
+        print(f"Caught input_temperature error: {e}")
 
     print("All tests completed - program didn't crash!")
 
