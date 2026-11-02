@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/11/02 14:21:54 by tschwab           #+#    #+#             #
-#    Updated: 2026/11/02 14:34:53 by tschwab          ###   ########.ch       #
+#    Updated: 2026/11/02 14:40:36 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -16,24 +16,20 @@ def input_temperature(temp_str: str) -> int:
         return temp
     else:
         if temp < 0:
-            raise Exception
-            (f"Caught input_temperature error: {temp}°C is too"
-            f" cold for plants (min 0°C)\n")
+            raise Exception(
+                f"{temp}°C is too cold for plants (min 0°C)")
         else:
-            raise Exception
-            (f"Caught input_temperature error: {temp}°C is too"
-            f" hot for plants (min 40°C)\n")
+            raise Exception(
+                f"{temp}°C is too hot for plants (max 40°C)")
+
 
 def test_temperature() -> None:
-    test1 = "25"
-    test2 = "abc"
-    test3 = "100"
-    test4 = "-50"
-    tests = [test1, test2, test3, test3]
+
+    tests = ["25", "abc", "100", "-50"]
 
     print("=== Garden Temperature Checker ===\n")
 
-    while test in tests:
+    for test in tests:
         try:
             print(f"Input data is '{test}'")
             temp = input_temperature(test)
