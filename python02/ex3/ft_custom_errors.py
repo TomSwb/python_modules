@@ -1,12 +1,12 @@
 # *************************************************************************** #
 #                                                                             #
 #                                                         :::      ::::::::   #
-#    ft_custom_error.py                                 :+:      :+:    :+:   #
+#    ft_custom_errors.py                                :+:      :+:    :+:   #
 #                                                     +:+ +:+         +:+     #
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/11/02 15:19:54 by tschwab           #+#    #+#             #
-#    Updated: 2026/11/02 15:45:30 by tschwab          ###   ########.ch       #
+#    Updated: 2026/11/02 15:51:17 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -14,6 +14,13 @@ class GardenError(Exception):
     def __init__(self, message: str = "Unknown plant error") -> None:
         super().__init__(message)
 
+    def raising_error(num: int) -> None:
+        if num == 0:
+            raise PlantError()
+        elif num == 1:
+            raise WaterError()
+        else:
+            return
 
 class PlantError(GardenError):
     def __init__(self, message: str = "The tomato plant is wilting!") -> None:
@@ -30,24 +37,24 @@ def test_error_types() -> None:
 
     try:
         print("Testing PlantError...")
-        raise PlantError()
+        GardenError.raising_error(0)
     except PlantError as e:
         print(f"Caught PlantError: {e}\n")
 
     try:
         print("Testing WaterError...")
-        raise WaterError()
+        GardenError.raising_error(1)
     except WaterError as e:
         print(f"Caught WaterError: {e}\n")
 
     try:
-        print("Testing all garden errors...")
-        raise PlantError()
+        print("Testing catching all garden errors...")
+        GardenError.raising_error(0)
     except GardenError as e:
         print(f"Caught GardenError: {e}")
 
     try:
-        raise WaterError()
+        GardenError.raising_error(1)
     except GardenError as e:
         print(f"Caught GardenError: {e}\n")
 
