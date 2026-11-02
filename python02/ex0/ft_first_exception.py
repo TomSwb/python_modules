@@ -1,6 +1,6 @@
 
-def input_temperature(temp_str: str):
-    temp = (int)temp_str
+def input_temperature(temp_str: str)-> int:
+    temp = int(temp_str)
     return (temp)
 
 def test_temperature():
