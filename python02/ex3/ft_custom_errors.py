@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/11/02 15:19:54 by tschwab           #+#    #+#             #
-#    Updated: 2026/11/02 15:57:21 by tschwab          ###   ########.ch       #
+#    Updated: 2026/11/02 15:58:08 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -26,10 +26,10 @@ class WaterError(GardenError):
 
 
 def check_tank(level: int) -> None:
-        if level < 2:
-            raise PlantError()
-        elif level < 5:
-            raise WaterError()
+    if level < 2:
+        raise PlantError()
+    elif level < 5:
+        raise WaterError()
 
 
 def test_error_types() -> None:
