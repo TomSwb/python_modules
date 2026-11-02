@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/11/02 14:41:32 by tschwab           #+#    #+#             #
-#    Updated: 2026/11/02 15:15:01 by tschwab          ###   ########.ch       #
+#    Updated: 2026/11/02 15:17:59 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -18,7 +18,7 @@ def garden_operations(operation_number: int) -> None:
     elif operation_number == 2:
         open("/non/existent/file")
     elif operation_number == 3:
-        "hello" + 25
+        "hello" + 25  # type: ignore[operator]
     else:
         return
 
