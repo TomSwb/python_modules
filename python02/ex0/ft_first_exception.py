@@ -1,9 +1,12 @@
 
 def input_temperature(temp_str: str):
-    temp = (int)(input)
+    temp = (int)temp_str
     return (temp)
 
 def test_temperature():
+    test1 = 25
+    test2 = abc
+    
     input_temperature(25)
     print("Input temperature is '25'")
     
