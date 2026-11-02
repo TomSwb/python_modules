@@ -6,24 +6,28 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/11/02 15:58:45 by tschwab           #+#    #+#             #
-#    Updated: 2026/11/02 16:27:06 by tschwab          ###   ########.ch       #
+#    Updated: 2026/11/02 16:32:53 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
-class PlantError(Exception):
+class GardenError(Exception):
     def __init__(self, message: str = "Unknown plant error") -> None:
+        super().__init__(message)
+
+
+class PlantError(GardenError):
+    def __init__(self, message: str = "The tomato plant is wilting!") -> None:
         super().__init__(message)
 
 
 def water_plant(plant_name: str) -> None:
     if plant_name != plant_name.capitalize():
-        raise PlantError(f"Invalid name to water: '{plant_name}'")
+        raise PlantError(f"Invalid plant name to water: '{plant_name}'")
     print(f"Watering {plant_name}: [OK]")
 
 
-def test_watering_system(plants: list[str]) -> None:
+def watering_system(plants: list[str]) -> None:
     try:
-        print("Testing valid plants...")
         print("Opening watering system")
         for plant in plants:
             water_plant(plant)
@@ -35,14 +39,17 @@ def test_watering_system(plants: list[str]) -> None:
         print("Closing watering system\n")
 
 
-def main() -> None:
+def test_watering_system() -> None:
     print("=== Garden Watering System ===\n")
 
     plants = ["Tomato", "Lettuce", "Carrots"]
-    test_watering_system(plants)
+    print("Testing valid plants...")
+    watering_system(plants)
     plants = ["Tomato", "lettuce", "Carrots"]
-    test_watering_system(plants)
+    print("Testing invalid plants...")
+    watering_system(plants)
+    print("Cleanup always happens, even with errors!")
 
 
 if __name__ == "__main__":
-    main()
+    test_watering_system()
