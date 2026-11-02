@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/11/02 15:19:54 by tschwab           #+#    #+#             #
-#    Updated: 2026/11/02 15:43:54 by tschwab          ###   ########.ch       #
+#    Updated: 2026/11/02 15:45:30 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -27,7 +27,7 @@ class WaterError(GardenError):
 
 def test_error_types() -> None:
     print("=== Custom Garden Errors Demo ===\n")
-    
+
     try:
         print("Testing PlantError...")
         raise PlantError()
@@ -45,13 +45,14 @@ def test_error_types() -> None:
         raise PlantError()
     except GardenError as e:
         print(f"Caught GardenError: {e}")
-        
+
     try:
         raise WaterError()
     except GardenError as e:
         print(f"Caught GardenError: {e}\n")
 
     print("All custom error types work correctly!")
+
 
 if __name__ == "__main__":
     test_error_types()
