@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/11/02 15:58:45 by tschwab           #+#    #+#             #
-#    Updated: 2026/11/02 16:32:53 by tschwab          ###   ########.ch       #
+#    Updated: 2026/11/02 16:34:43 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -33,7 +33,7 @@ def watering_system(plants: list[str]) -> None:
             water_plant(plant)
     except PlantError as e:
         print(f"Caught PlantError: {e}")
-        print("... ending tests and returning to main")
+        print(".. ending tests and returning to main")
         return
     finally:
         print("Closing watering system\n")
