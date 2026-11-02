@@ -6,7 +6,7 @@
 #    By: tschwab <tschwab@student.42lausanne.ch>    +#+  +:+       +#+        #
 #                                                 +#+#+#+#+#+   +#+           #
 #    Created: 2026/11/02 15:19:54 by tschwab           #+#    #+#             #
-#    Updated: 2026/11/02 15:35:47 by tschwab          ###   ########.ch       #
+#    Updated: 2026/11/02 15:43:54 by tschwab          ###   ########.ch       #
 #                                                                             #
 # *************************************************************************** #
 
@@ -30,37 +30,24 @@ def test_error_types() -> None:
     
     try:
         print("Testing PlantError...")
+        raise PlantError()
     except PlantError as e:
         print(f"Caught PlantError: {e}\n")
-    except WaterError as e:
-        print(f"Caught WaterError: {e}\n")
-    except GardenError as e:
-        print(f"Caught GardenError: {e}\n")
 
     try:
         print("Testing WaterError...")
-    except PlantError as e:
-        print(f"Caught PlantError: {e}\n")
+        raise WaterError()
     except WaterError as e:
         print(f"Caught WaterError: {e}\n")
-    except GardenError as e:
-        print(f"Caught GardenError: {e}\n")
 
     try:
-        print("Testing GardenError...")
-    except PlantError as e:
-        print(f"Caught PlantError: {e}\n")
-    except WaterError as e:
-        print(f"Caught WaterError: {e}\n")
+        print("Testing all garden errors...")
+        raise PlantError()
     except GardenError as e:
-        print(f"Caught GardenError: {e}\n")
-    
+        print(f"Caught GardenError: {e}")
+        
     try:
-        print("Testing GardenError...")
-    except PlantError as e:
-        print(f"Caught PlantError: {e}\n")
-    except WaterError as e:
-        print(f"Caught WaterError: {e}\n")
+        raise WaterError()
     except GardenError as e:
         print(f"Caught GardenError: {e}\n")
 
