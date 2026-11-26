@@ -15,9 +15,9 @@ import random
 
 def gen_player_achievements(lst: list[str]) -> set[str]:
 
-    i = random.randint(0, 14)
+    i = random.randint(0, len(lst))
     player_has = set(random.sample(lst, i))
-    return set(player_has)
+    return player_has
 
 
 if __name__ == "__main__":
@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     distinct = alice.union(bob, charlie, dylan)
 
-    print(f"All distinct archievements: {distinct}\n")
+    print(f"All distinct achievements: {distinct}\n")
 
     common = alice.intersection(bob, charlie, dylan)
 
