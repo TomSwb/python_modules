@@ -15,7 +15,7 @@ import random
 
 def gen_player_achievements(lst: list[str]) -> set[str]:
 
-    i = random.randint(0, len(lst))
+    i = random.randint(1, len(lst))
     player_has = set(random.sample(lst, i))
     return player_has
 
