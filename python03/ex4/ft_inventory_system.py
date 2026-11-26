@@ -10,3 +10,17 @@
 #                                                                             #
 # *************************************************************************** #
 
+import sys
+
+
+if __name__ == "__main__":
+    print("=== Inventory system analisys ===")
+
+    items = []
+
+    for item in sys.argv[1:]:
+        try:
+            i = int(item)
+            item.append(i)
+        except ValueError:
+            print(f"Invalid parameter: {item!r}")
